@@ -10,6 +10,25 @@ const total = document.querySelector('.total');
 
 let items;
 
+function insertItem(item, index) {
+    let tr = document.createElement('tr');
+
+    tr.innerHTML = `
+    <td>${item.desc}</td>
+    <td>R$ ${item.amount}</td>
+    <td class="columnType">${
+      item.type === "Entrada"
+        ? '<i class="bx bxs-chevron-up-circle"></i>'   // Icon seta p cima
+        : '<i class="bx bxs-chevron-down-circle"></i>' // Icon seta p baixo
+    }</td>
+    <td class="columnAction">
+      <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
+    </td>
+  `;
+
+  tbody.appendChild(tr);
+};
+
 function loadItems() {
     items = getItemsDB();
     // Limpar tbody para não duplicar itens na tela
