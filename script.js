@@ -9,7 +9,17 @@ const expenses = document.querySelector('.expenses');
 const total = document.querySelector('.total');
 
 let items;
+
+function loadItems() {
+    items = getItemsDB();
+    // Limpar tbody para não duplicar itens na tela
+    tbody.innerHTML = '';
+    items.forEach((item, index) => {
+        insertItem(item, index);
+    })
+};
+
 // Pega os itens no banco - Se não, será um array vazio
-const getItemDB = () => JSON.parse(localStorage.getItem('db_items')) ?? [];
+const getItemsDB = () => JSON.parse(localStorage.getItem('db_items')) ?? [];
 // Inserindo no banco as informações da variável items
-const setItemDB = () => localStorage.setItem('db_items', JSON.stringify(items));
+const setItemsDB = () => localStorage.setItem('db_items', JSON.stringify(items));
