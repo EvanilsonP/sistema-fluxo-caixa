@@ -10,6 +10,12 @@ const total = document.querySelector('.total');
 
 let items;
 
+function deleteItem(index) {
+    items.splice(index, 1);
+    setItemsDB();
+    loadItems();
+};
+
 function insertItem(item, index) {
     let tr = document.createElement('tr');
 
