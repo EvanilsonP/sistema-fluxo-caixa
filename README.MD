@@ -1,1 +1,1 @@
-### Básico projeto com HTML, CSS e JAVASCRIPT
+### Básico projeto com HTML, CSS e JAVASCRIPT.
